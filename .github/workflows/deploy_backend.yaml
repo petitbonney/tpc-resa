@@ -23,7 +23,7 @@ env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT }}
   SERVICE: tpc-resa-backend
   VERSION: 0.0.0
-  REGION: europe-west9
+  REGION: europe-west3
 
 jobs:
   deploy:
@@ -61,4 +61,5 @@ jobs:
           --image eu.gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  env.VERSION }} \
           --platform "managed" \
           --allow-unauthenticated \
+          --port 3000 \
           --service-account tpc-root@tpc-resa.iam.gserviceaccount.com
